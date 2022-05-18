@@ -28,6 +28,10 @@ main{
 table{
     
 }
+.proyectos{
+	
+    width: 60%;
+}
 
 .sidebar_titulos{
     align-content: center;
@@ -48,4 +52,14 @@ tr{
     color: black;
     border-color: chocolate;
     
+}
+.educacion{
+    width: 60%;
+	
+}
+footer{
+    width: 60%;
+}
+a{
+	color: white;
 }

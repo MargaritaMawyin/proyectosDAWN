@@ -2,7 +2,7 @@
 
 ➡️: Primer proyecto: Página web con mi portafolio de presentación.
 
-#### Referenicas:
+#### Referencias:
 
 [1] Truong, C., 2019. Styling documents consistently - CSS Video Tutorial | LinkedIn Learning, formerly Lynda.com. [online] LinkedIn Learning. Available at: <https://www.linkedin.com/learning/css-essential-training-3/styling-documents-consistently?autoplay=true&contextUrn=urn%3Ali%3AlyndaLearningPath%3A5ebaefdc498e440b07b53ea1&u=92964874> .
 

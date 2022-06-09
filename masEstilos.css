@@ -1,0 +1,124 @@
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 320px) {
+
+    body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "header header"
+            "left_side left_side "
+            "aside aside";
+        height: 100%;
+        background: #f5f4ef;
+
+    }
+
+    header {
+        grid-area: header;
+        width: 100%;
+        height: 100%;
+    }
+
+    .left_side {
+        grid-area: left_side;
+    }
+
+    aside {
+        grid-area: aside;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+            "A C"
+            "A D"
+            "A E"
+            "A F"
+            "A H"
+            "B G";
+    }
+
+    .A {
+        grid-area: A;
+    }
+
+    .B {
+        grid-area: B;
+    }
+
+    .B {
+        grid-area: B;
+    }
+
+    .C {
+        grid-area: C;
+    }
+
+    .D {
+        grid-area: D;
+    }
+
+    .E {
+        grid-area: E;
+    }
+
+    .F {
+        grid-area: F;
+    }
+
+    .G {
+        grid-area: G;
+    }
+
+    .H {
+        grid-area: H;
+    }
+
+    aside {
+        grid-area: aside;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+            "idiomas "
+            "interesado"
+            "lp "
+            "form"
+            "otrosC"
+            "video";
+    }
+    #idiomas {
+        grid-area: idiomas;
+    }
+    
+    #lp {
+        grid-area: lp;
+    }
+    
+    #otrosC {
+        grid-area: otrosC;
+    }
+    
+    #interesado {
+        grid-area: interesado;
+       
+    }
+    
+    #form {
+        grid-area: form;
+    }
+    
+    #video {
+        grid-area: video;
+    }
+
+}

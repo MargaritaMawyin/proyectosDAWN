@@ -7,95 +7,39 @@ body {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas: 
     "header header header header"
-    "left_side left_side aside aside";
+    "left_side left_side aside aside" ;
+    
     height: 100vw;
     font-family: Poppins;
     background: #f5f4ef;
 
 }
 
-/* header {
+header {
     grid-area: header;
     background: #6b4339;
     color: #f5f4ef;
     font-size: 16px;
-    width: 100vw;
-    height: auto;
-} */
-.container_header {
-    grid-area: header;
-    background: #6b4339;
-    color: #f5f4ef;
-    font-size: 16px;
-    width: 100vw;
+    width: 100%;
     height: auto;
 
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    grid-template-columns: 24% 24% 24% 24%; 
     grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 0px 10px;
     grid-template-areas:
-        "A C G"
-        "A D H"
-        "A E H"
-        "B F H";
+        "A A C G"
+        "A A D H"
+        "A A E H"
+        "B B F H";
 }
+
 
 .left_side {
     grid-area: left_side;
-    /*position: relative;
-    top: 0;
-    left: 0;
-    bottom: 50%;
-    width: 60%;*/
-    height: auto;
-    width: 100%;
-   /* padding: 5px 0%;*/
-}
-aside {
-    grid-area: aside;
-    display: grid;
-    grid-template-columns: 47% 47%;
-    grid-template-rows: 0.4fr 0.4fr 0.2fr;
-    gap: 0px 10px;
-    grid-template-areas:
-        "idiomas form"
-        "lp video"
-        "otrosC mas";
-
-    /*border-radius: 8%;*/
-    background: #9f6a5c;
-    /*position: absolute;
-    top: 60%;
-    padding: 1px 20px;
-    left: 55%;*/
-    /* height: auto;
-    width: 100%; */
-    align-items: center;
-}
-footer{
-    grid-area: footer;
-
+    height: 100%;
 }
 
-.nombre-foto{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-    "foto nombre" ;
-    /* justify-items: stretch; */
-}
-.A img{
-    grid-area: foto; 
-    margin: 1vw;
-    
-    height: auto;
-    width: 100%;
-}
-.A p{
-    grid-area: nombre;
-    font-size: 26px;
-}
 .carrera {
     border-radius: 2vw;
     background: #9f6a5c;
@@ -115,8 +59,10 @@ h2.titulos {
 
 }
 
+
 a {
     color: white;
+    text-decoration: none;
 
 }
 .lista:hover {
@@ -124,99 +70,87 @@ a {
     font-size: larger;
 
 }
-a{
-    text-decoration: none;
-}
+
 
 img {
-    border-radius: 0.5vw;
+    border-radius: 5vw;
     color: #6b4339;
 }
 
 .cabecera_color {
     background: #ffcdcd;
 }
+.nombre-foto{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "foto nombre" ;
+    justify-items: stretch;
+}
+.A img{
+    grid-area: foto; 
+    margin-top: 5vw;
+    height: auto;
+    width: 90%;
+}
+.A p{
+    grid-area: nombre;
+    font-size: 26px;
+    
+}
+.A h3{
+    margin: 5vw 0%;   
+    
+}
 
 .A {
     grid-area: A;
-    height: auto;
-    width: 100%;
+    margin-left: 7vw;
 }
-
-
 
 .B {
     grid-area: B;
-    height: auto;
-    width: 100%;
 }
-
 
 .C {
     grid-area: C;
-    height: auto;
-    width: 100%;
-
 }
 
 .D {
     grid-area: D;
-    height: auto;
-    width: 100%;
 }
-    
-
 
 .E {
     grid-area: E;
-    height: auto;
-    width: 100%;
 }
-
 
 .F {
     grid-area: F;
-    height: auto;
-    width: 100%;
 }
-
 
 .G {
     grid-area: G;
-    height: auto;
-    width: 100%;
 }
-
 
 .H {
     grid-area: H;
-    height: auto;
-    width: 100%;
 }
-    
-
 .H iframe{
-    
+    width: 100%;
+    height: auto;
 }
-
 aside {
     grid-area: aside;
     display: grid;
-    grid-template-columns: 47% 47%;
+    grid-template-columns: 50% 50%;
     grid-template-rows: 0.4fr 0.4fr 0.2fr;
     gap: 0px 10px;
     grid-template-areas:
         "idiomas form"
         "lp video"
         "otrosC mas";
-
-    /*border-radius: 8%;*/
     background: #9f6a5c;
-    /*position: absolute;
-    top: 60%;
-    padding: 1px 20px;
-    left: 55%;*/
-    height: auto;
+    height: 100%;
     width: 100%;
     align-items: center;
 }
@@ -233,7 +167,6 @@ aside {
     "f2c1 f2c2 f2c3 f2c4"
     "f3c1 f3c2 f2c3 f3c4"
     "f4c1 f4c2 f4c3 f4c4";
-    /*border-style: solid;*/
     padding: 3vw;
 
 }
@@ -253,7 +186,6 @@ aside {
     "f1c1 f1c2 f1c3"
     "f2c1 f2c2 f2c3"
     "f3c1 f3c2 f2c3";
-    /*border-style: solid;*/
     padding: 3vw;
 
 }
@@ -272,7 +204,6 @@ aside {
     "titulo titulo titulo"
     "f1c1 f1c2 f1c3"
     "f2c1 f2c2 f2c3";
-    /*border-style: solid;*/
     padding: 3vw;
 }
 #otrosC .sidebar_titulos{
@@ -298,11 +229,8 @@ aside {
 
 #video {
     grid-area: video;
-    
-
-    /* padding: 3vw; */
+    padding: 3vw;
 }
-
 .icono img{
     width: 100%;
     height: auto;

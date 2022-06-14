@@ -6,46 +6,48 @@
     box-sizing: border-box;
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 400px) {
 
     body {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
             "header header"
-            "left_side left_side "
-            "aside aside";
+            "left_side left_side"
+            "aside aside"
+            "footer footer"; 
         height: 100%;
         background: #f5f4ef;
 
     }
 
-    header {
-        grid-area: header;
-        width: 100%;
-        height: 100%;
-    }
-
-    .left_side {
+    .left_side_interno {
         grid-area: left_side;
     }
 
     aside {
         grid-area: aside;
+
+        background: #9f6a5c;
     }
 
-    .container {
+    header {
+        grid-area: header;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0px 0px;
+        grid-template-columns: 49% 49%;
+        gap: 0px 20px;
         grid-template-areas:
             "A C"
             "A D"
             "A E"
             "A F"
-            "A H"
-            "B G";
+            "A G"
+            "B H";
     }
+
+    /* footer {
+        grid-area: footer;
+    } */
 
     .A {
         grid-area: A;
@@ -96,29 +98,76 @@
             "otrosC"
             "video";
     }
+
+    .nombre-foto {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 49% 49%;
+        grid-template-areas:
+            "foto"
+            "nombre";
+        justify-items: stretch;
+    }
+
+    .A img {
+        grid-area: foto;
+        margin: 1vw;
+
+        height: auto;
+        width: 100%;
+    }
+
+    .A p {
+        grid-area: nombre;
+        font-size: 20px;
+    }
+
+    .A h3 {
+        margin: 0%;
+
+    }
+
     #idiomas {
         grid-area: idiomas;
+
     }
-    
+
     #lp {
         grid-area: lp;
     }
-    
+
     #otrosC {
         grid-area: otrosC;
     }
-    
+
     #interesado {
         grid-area: interesado;
-       
+
     }
-    
+
     #form {
         grid-area: form;
     }
-    
+
     #video {
         grid-area: video;
+    }
+
+    .H iframe {
+        width: 90%;
+        height: auto;
+    }
+
+}
+
+@media screen and (min-device-width: 400px) and (max-device-width: 1200px) {
+
+    #idiomas,
+    #lp,
+    #otros,
+    #interesados,
+    #form {
+        font-size: 10px;
     }
 
 }

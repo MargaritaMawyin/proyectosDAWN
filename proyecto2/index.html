@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DASHMIN - Bootstrap Admin Template</title>
+    <title>DASHBOARD - Softaware jobs</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -50,16 +50,7 @@
                     <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
-                    <div class="position-relative">
-                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                        <div
-                            class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
-                        </div>
-                    </div>
-                    <div class="ms-3">
-                        <h6 class="mb-0">Jhon Doe</h6>
-                        <span>Admin</span>
-                    </div>
+
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="index.html" class="nav-item nav-link active"><i
@@ -83,9 +74,9 @@
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-                <form class="d-none d-md-flex ms-4">
+                <!-- <form class="d-none d-md-flex ms-4">
                     <input class="form-control border-0" type="search" placeholder="Search">
-                </form>
+                </form> -->
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
 
@@ -101,20 +92,20 @@
                     </div>
 
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <!-- <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
                                 style="width: 40px; height: 40px;">
                             <span class="d-none d-lg-inline-flex">John Doe</span>
-                        </a>
+                        </a> -->
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            
+
                         </div>
                     </div>
                 </div>
             </nav>
             <!-- Navbar End -->
 
-<!-- Selector -->
+            <!-- Selector -->
             <div class="col-lg-12 col-sm-12 col-md-12">
                 <form class="contact_form" action="">
                     <div class="row">
@@ -122,9 +113,10 @@
                         <div class="col-sm-12 mt-2 mb-6">
                             <div class="form-group">
                                 <div class="input-group">
-                                    <select name="select" class="custom-select custom-select-lg form-control " required="">
-                                      <option value="-1" selected="">Seleccione la compañia</option>
-                                      
+                                    <select name="select" class="custom-select custom-select-lg form-control "
+                                        required="">
+                                        <option value="-1" selected="">Seleccione la compañia</option>
+
                                     </select>
                                 </div>
                             </div>
@@ -132,7 +124,7 @@
                     </div>
                 </form>
             </div>
-<!-- Fin del Selector -->
+            <!-- Fin del Selector -->
 
             <!-- Sale & Revenue Start -->
             <div class="container-fluid pt-4 px-4">
@@ -180,23 +172,36 @@
 
             <!-- Sales Chart Start -->
             <div class="container-fluid pt-4 px-4">
-                
+
                 <div class="row g-4">
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light text-center rounded p-4">
+                            <h6 class="mb-0">Nivel de experiencia</h6>
+
                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div id="PieChart" style="height: 300px; width: 100%;"></div>
+                                <canvas id="PieChart" style="height: 300px; width: 100%;"></canvas>
+                                <!-- <div id="PieChart" style="height: 300px; width: 100%;"></div> -->
                             </div>
-                           
+
                         </div>
                     </div>
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light text-center rounded p-4">
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h6 class="mb-0">Salse & Revenue</h6>
-                                <a href="">Show All</a>
-                            </div>
-                            <canvas id="lineChart"></canvas>
+                            <h6 class="mb-0">Salarios</h6>
+                             <canvas id="lineChart" style="height: 300px; width: 100%;"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light text-center rounded p-4">
+                            <h6 class="mb-0">Tecnologias usadas</h6>
+                             <!-- <canvas id="columnChart"></canvas> -->
+                             <canvas id="barChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-6">
+                        <div class="bg-light text-center rounded p-4">
+                            <h6 class="mb-0">Ciudad-Estado</h6>
+                             <canvas id="columnChart"></canvas>
                         </div>
                     </div>
                 </div>
@@ -220,7 +225,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                               
+
                             </tbody>
                         </table>
                     </div>
@@ -229,7 +234,7 @@
             <!-- Recent Sales End -->
 
 
-        
+
 
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
@@ -268,6 +273,7 @@
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    
 
     <!-- Template Javascript -->
 

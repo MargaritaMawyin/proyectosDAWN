@@ -1,5 +1,5 @@
-
-var company = [], salaryFrom = [], salaryTo = [], trabajo = [], sponsor = [], nivel = [], tamano = [], tec = [];
+//ONLOAD
+var company = [], salaryFrom = [], salaryTo = [], trabajo = [], sponsor = [], nivel = [], tamano = [], tec_conArreglos = [], tec = [], ciudad = [], estado = [];
 var empresaSeleccionada;
 // PRESENTANDO EN SELECT TODAS LAS EMPRESAS
 fetch("https://devitjobs.us/api/jobsLight")  //API a consumir
@@ -14,9 +14,16 @@ fetch("https://devitjobs.us/api/jobsLight")  //API a consumir
             sponsor.push(data[i].hasVisaSponsorship)
             nivel.push(data[i].expLevel)
             tamano.push(data[i].companySize)
+            // tec_conArreglos.push(data[i].technologies)
             tec.push(data[i].technologies)
+            ciudad.push(data[i].cityCategory)
+            estado.push(data[i].stateCategory)
 
+            // console.log(data[i].cityCategory,data[i].stateCategory)
+            // console.log(tec)
+            // console.log(new Set(tec))
         }
+
         //CONJUNTO DE EMPRESAS 
         conjCompany = new Set(company)
         document.querySelector('div.input-group > select').innerHTML += `<option value="TODAS">***TODAS***</option>`
@@ -30,6 +37,7 @@ fetch("https://devitjobs.us/api/jobsLight")  //API a consumir
         let selectElemento = document.querySelector('.custom-select');
         selectElemento.addEventListener('change', (eventChange) => {
             empresaSeleccionada = eventChange.target.value;
+            console.log(empresaSeleccionada)
 
             //NIVELES
             var conjNiveles = ['Regular', 'Lead', 'Senior', 'Junior']
@@ -76,78 +84,228 @@ fetch("https://devitjobs.us/api/jobsLight")  //API a consumir
 
             }
             //PIE CHAR
-            var chart = new CanvasJS.Chart("PieChart",
-                {
-                    title: {
-                        text: "Niveles de experiencia que se pide"
-                    },
-                    legend: {
-                        maxWidth: 350,
-                        itemWidth: 120
-                    },
-                    data: [
-                        {
-                            type: "pie",
-                            showInLegend: true,
-                            legendText: "{indexLabel} - {y}",
-                            dataPoints: [
-                                { y: nivel1, indexLabel: conjNiveles[0] },
-                                { y: nivel2, indexLabel: conjNiveles[1] },
-                                { y: nivel3, indexLabel: conjNiveles[2] },
-                                { y: nivel4, indexLabel: conjNiveles[3] },
+            var ctxL = document.getElementById("PieChart").getContext('2d');
 
-                            ]
-                        }
-                    ]
-                });
-            chart.render(); //FIN PIE CHART
-            
-        //LINE CHART
-        var ctxL = document.getElementById("lineChart").getContext('2d');
-        var myLineChart = new Chart(ctxL, {
-            type: 'line',
-            data: {
-                labels: [1],
-                datasets: [{
-                    label: "My First dataset",
-                    data: [7],
-                    backgroundColor: [
-                        'rgba(105, 0, 132, .2)',
-                    ],
-                    borderColor: [
-                        'rgba(200, 99, 132, .7)',
-                    ],
-                    borderWidth: 2
-                },
-                {
-                    label: "My Second dataset",
-                    data: [28, 48, 40, 19, 86, 27, 90],
-                    backgroundColor: [
-                        'rgba(0, 137, 132, .2)',
-                    ],
-                    borderColor: [
-                        'rgba(0, 10, 130, .7)',
-                    ],
-                    borderWidth: 2
-                }
-                ]
-            },
-            options: {
-                responsive: true
+            let chartStatus3 = Chart.getChart("PieChart");
+            if (chartStatus3 != undefined) {
+                chartStatus3.destroy()
             }
-        });
+            var myLineChart = new Chart(ctxL, {
+                type: 'pie',
+                data: {
+                    labels: conjNiveles,
+                    datasets: [{
+                        label: "Salario desde",
+                        data: [nivel1, nivel2, nivel3, nivel4],
+                        backgroundColor: [
+                            'rgba(105, 0, 132, .2)',
+                            'rgb(255, 99, 132)',
+                            'rgb(54, 162, 235)',
+                            'rgb(255, 205, 86)'
+                        ],
+                        borderColor: [
+                            'rgba(200, 99, 132, .7)',
+                        ],
+                        borderWidth: 2,
+                        hoverOffset: 4
+                    },
+                    ]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+            //FIN PIE CHART
+
+            //LINE CHART
+            var data1 = []//salarios desde
+            var data2 = []//salarios hasta
+            var l = [];
+            var cont = 1;
+            for (let i in company) {
+                if (empresaSeleccionada == company[i]) {
+                    data1.push(salaryFrom[i])
+                    data2.push(salaryTo[i])
+                    l.push(cont++)
+
+                }
+                if (empresaSeleccionada == "TODAS") {
+                    data1.push(salaryFrom[i])
+                    data2.push(salaryTo[i])
+                    l.push(cont++)
+
+                }
+            }
+
+            var ctxL = document.getElementById("lineChart").getContext('2d');
+
+            let chartStatus = Chart.getChart("lineChart");
+            if (chartStatus != undefined) {
+                chartStatus.destroy()
+            }
+            var myLineChart = new Chart(ctxL, {
 
 
-    })
-    .catch(console.error); //FIN LINE CHART
+                type: 'line',
+                data: {
+                    labels: l,
+                    datasets: [{
+                        label: "Salario desde",
+                        data: data1,
+                        backgroundColor: [
+                            'rgba(105, 0, 132, .2)',
+                        ],
+                        borderColor: [
+                            'rgba(200, 99, 132, .7)',
+                        ],
+                        borderWidth: 2
+                    },
+                    {
+                        label: "Salario hasta",
+                        data: data2,
+                        backgroundColor: [
+                            'rgba(0, 137, 132, .2)',
+                        ],
+                        borderColor: [
+                            'rgba(0, 10, 130, .7)',
+                        ],
+                        borderWidth: 2
+                    }
+                    ]
+                },
+                options: {
+                    responsive: true
+                }
+            }); // FIN LINE CHART
 
-        }); //FIN EVENT CHANGE
+
+            // BAR H CHART
+            var tecs = [];
+            for (let i in company) {
+                if (empresaSeleccionada == company[i]) {
+                    tecs = tecs.concat(tec[i])
+                }
+                if (empresaSeleccionada == "TODAS") {
+                    tecs = tecs.concat(tec[i])
+                }
+                tecConj = new Set(tecs)
+                arregloTecUnicos = Array.from(tecConj)
+            }
+            // let array = ['one', 'two', 'one', 'four', 'five']
+            // array = array.filter(element => element == 'one')
+            // console.log(array.length)
+            console.log(arregloTecUnicos)
+            console.log(tecs)
+            let cant =[]
+            for (let t of arregloTecUnicos) {
+                a = tecs.filter(e => e == t)
+                cant.push(a.length)
+
+            }
+            
+            console.log(cant)
+            //https://www.chartjs.org/docs/latest/samples/bar/horizontal.html
+            //https://www.chartjs.org/docs/latest/charts/bar.html
+            var ctxL = document.getElementById("barChart");
+            let chartStatus5 = Chart.getChart("barChart");
+            if (chartStatus5 != undefined) {
+                chartStatus5.destroy()
+            }
+            var myLineChart = new Chart(ctxL, {
+
+                type: 'bar',
+                data: {
+                    labels: arregloTecUnicos,
+                    datasets: [{
+                        label: arregloTecUnicos,
+                        data: cant,
+                        backgroundColor: [
+                            'rgba(105, 0, 132, .2)',
+                            'rgba(100, 10, 132, .5)',
+                        ],
+                        borderColor: [
+                            'rgba(200, 99, 132, .7)',
+                        ],
+                        borderWidth: 2
+                    },]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+            // FIN DE BAR H CHART
+
+
+            //BAR CHART
+            var est = []//estados
+            var ciu = []//ciudades
+            var l2 = [];
+            var cont = 1;
+            for (let i in company) {
+                if (empresaSeleccionada == company[i]) {
+                    est.push(estado[i])
+                    ciu.push(ciudad[i])
+                    l2.push(cont++)
+                    console.log(estado[i], ciudad[i])
+                }
+                if (empresaSeleccionada == "TODAS") {
+                    est.push(estado[i])
+                    ciu.push(ciudad[i])
+                    l2.push(cont++)
+
+                }
+            }
+
+
+            var ctxL = document.getElementById("columnChart").getContext('2d');
+            let chartStatus2 = Chart.getChart("columnChart");
+            if (chartStatus2 != undefined) {
+                chartStatus2.destroy()
+            }
+            var myLineChart = new Chart(ctxL, {
+
+                type: 'bar',
+                data: {
+                    labels: l2,
+                    datasets: [{
+                        label: ciu,
+                        data: l2,
+                        backgroundColor: [
+                            'rgba(105, 0, 132, .2)',
+                        ],
+                        borderColor: [
+                            'rgba(200, 99, 132, .7)',
+                        ],
+                        borderWidth: 2
+                    },
+                    {
+                        label: est,
+                        data: l2,
+                        backgroundColor: [
+                            'rgba(0, 137, 132, .2)',
+                        ],
+                        borderColor: [
+                            'rgba(0, 10, 130, .7)',
+                        ],
+                        borderWidth: 2
+                    }
+                    ]
+                },
+                options: {
+                    responsive: true
+                }
+            });//FIN DEL BAR CHART
+
+        })//FIN EVENT CHANGE
+            .catch(console.error); //FIN LINE CHART
+
+    }); //FIN FETCH
 
 
 
 
 
-        
+
 
 // });
 

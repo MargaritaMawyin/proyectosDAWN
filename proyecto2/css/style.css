@@ -71,7 +71,7 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 250px;
+    width: 350px;
     height: 100vh;
     overflow-y: auto;
     background: var(--light);
@@ -92,11 +92,11 @@
     }
 
     .sidebar.open {
-        margin-left: -250px;
+        margin-left: -350px;
     }
 
     .content {
-        width: calc(100% - 250px);
+        width: calc(100% - 350px);
     }
 
     .content.open {
@@ -107,7 +107,7 @@
 
 @media (max-width: 991.98px) {
     .sidebar {
-        margin-left: -250px;
+        margin-left: -350px;
     }
 
     .sidebar.open {
@@ -274,4 +274,36 @@
 .testimonial-carousel .owl-dot.active {
     background: var(--dark);
     border-color: var(--primary);
+}
+
+#p{
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.3rem;
+    background-color: #009CFF;
+    color: #FFFFFF;
+}
+#p1{
+    padding-left: 1vw;
+    margin-top: 1vw
+}
+#sidebar div div div h6{
+    background-color: #009CFF;
+    border-radius: 2rem;
+    padding: 1vw;
+}
+#sidebar div div div{
+    background-color: #a6deff46;
+    padding-bottom: 2vw;
+    /* padding-right: 2vw; */
+    border-radius:0.5rem;
+}
+
+#sidebar div div div p{
+    padding-right: 5vw;
+    margin: 1vw;
+}
+
+.mb-2 {
+    margin-top: 1vw !important;
 }

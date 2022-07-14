@@ -41,73 +41,74 @@
             </div>
         </div>
         <!-- Spinner End -->
-
+       
 
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
+                    <h3 class="text-primary"></i>DASHBOARD JOBS</h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
-
+                   
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link active"><i
-                            class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
 
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
+                    <!-- SIDE BAR INFORMATIBO-->
+                    <section id="sidebar">
+                    
+
+                        <!-- DIREECION   -->
+                        <div class="col-sm-6 col-xl-3">
+                            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                                <!-- <i class="fa fa-chart-area fa-3x text-primary"></i> -->
+                                <div class="ms-3">
+                                    <h6 class="mb-0">Direccion</h6>
+                                    <p id="direccion" class="mb-2"></p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- PERK KEYS -->
+                        <div class="col-sm-6 col-xl-3">
+                            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                                <!-- <i class="fa fa-location-arrow fa-3x text-primary"></i> -->
+                                <div class="ms-3">
+                                    <h6 class="mb-0">Perk Keys(Claves de beneficio)</h6>
+                                    <p id="perkKeys" class="mb-2"></p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
                 </div>
             </nav>
         </div>
-        <!-- Sidebar End -->
 
+        <!-- Sidebar End -->
+        
 
         <!-- Content Start -->
         <div class="content">
-            <!-- Navbar Start -->
-            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+             <!-- Navbar Start -->
+             <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
                     <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
                 </a>
                 <a href="#" class="sidebar-toggler flex-shrink-0">
-                    <i class="fa fa-bars"></i>
+                    <i class="fa fa-bars"></i> 
                 </a>
-                <!-- <form class="d-none d-md-flex ms-4">
-                    <input class="form-control border-0" type="search" placeholder="Search">
-                </form> -->
-                <div class="navbar-nav align-items-center ms-auto">
-                    <div class="nav-item dropdown">
-
-                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">
-                                <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt=""
-                                        style="width: 40px; height: 40px;">
-                                </div>
-                            </a>
-
-                        </div>
-                    </div>
-
-                    <div class="nav-item dropdown">
-                        <!-- <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt=""
-                                style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">John Doe</span>
-                        </a> -->
-                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-
-                        </div>
-                    </div>
-                </div>
+                <p id="p1">Aplasate aquí para <b>ver/ocultar</b> más información</p>
+            
             </nav>
             <!-- Navbar End -->
 
-            <!-- Selector -->
+            <!-- TEXTO EXPLICATIVO -->
             <div class="col-lg-12 col-sm-12 col-md-12">
+
                 <form class="contact_form" action="">
+                    <p id="p">A continuacion seleccione una empresa (o todas) para su informacion.</p>
                     <div class="row">
                         <!-- Input -->
                         <div class="col-sm-12 mt-2 mb-6">
@@ -124,26 +125,27 @@
                     </div>
                 </form>
             </div>
-            <!-- Fin del Selector -->
+            <!-- FIN DE TEXTO EXPLICATIVO -->
 
-            <!-- Sale & Revenue Start -->
+            <!-- CUADROS INFORMATIVOS -->
             <div class="container-fluid pt-4 px-4">
                 <div id="salary" class="row g-4">
-                    <!-- <div class="col-sm-6 col-xl-3">
+                    <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-line fa-3x text-primary"></i>
+                            <i class="fa fa-suitcase fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p id="salary" class="mb-2">Today Sale</p>
-                                
+                                <h6 class="mb-0">Tipo de trabajo</h6>
+                                <p id="tipo" class="mb-2"></p>
+
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-bar fa-3x text-primary"></i>
+                            <i class="fa fa-money-bill-wave fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Total Sale</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <h6 class="mb-0">Patrocinio de visa</h6>
+                                <p id="sponsorship" class="mb-2"></p>
                             </div>
                         </div>
                     </div>
@@ -151,20 +153,42 @@
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
                             <i class="fa fa-chart-area fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Today Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
+                                <h6 class="mb-0">Tamaño de la compañia</h6>
+                                <p id="tamanio" class="mb-2"></p>
+
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-xl-3">
                         <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-                            <i class="fa fa-chart-pie fa-3x text-primary"></i>
+                            <i class="fa fa-laptop fa-3x text-primary"></i>
                             <div class="ms-3">
-                                <p class="mb-2">Total Revenue</p>
-                                <h6 class="mb-0">$1234</h6>
+
+                                <h6 class="mb-0">Totalmente remoto</h6>
+                                <p id="remoto" class="mb-2"></p>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-laptop fa-3x text-primary"></i>
+                            <div class="ms-3">
+
+                                <h6 class="mb-0">Idioma</h6>
+                                <p id="idioma" class="mb-2"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xl-3">
+                        <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+                            <i class="fa fa-laptop fa-3x text-primary"></i>
+                            <div class="ms-3">
+
+                                <h6 class="mb-0">Aplicar por </h6>
+                                <p id="aplicacion" class="mb-2"></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- Sale & Revenue End -->
@@ -187,52 +211,26 @@
                     </div>
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light text-center rounded p-4">
-                            <h6 class="mb-0">Salarios</h6>
-                             <canvas id="lineChart" style="height: 300px; width: 100%;"></canvas>
+                            <h6 class="mb-0">Salarios anuales</h6>
+                            <canvas id="lineChart" style="height: 300px; width: 100%;"></canvas>
                         </div>
                     </div>
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light text-center rounded p-4">
                             <h6 class="mb-0">Tecnologias usadas</h6>
-                             <!-- <canvas id="columnChart"></canvas> -->
-                             <canvas id="barChart"></canvas>
+                            <!-- <canvas id="columnChart"></canvas> -->
+                            <canvas id="barChart"></canvas>
                         </div>
                     </div>
                     <div class="col-sm-12 col-xl-6">
                         <div class="bg-light text-center rounded p-4">
                             <h6 class="mb-0">Ciudad-Estado</h6>
-                             <canvas id="columnChart"></canvas>
+                            <canvas id="columnChart"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Sales Chart End -->
-
-
-            <!-- Recent Sales Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="bg-light text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Recent Salse</h6>
-                        <a href="">Show All</a>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table text-start align-middle table-bordered table-hover mb-0">
-                            <thead>
-                                <tr class="text-dark">
-                                    <th scope="col">Company</th>
-                                    <th scope="col">Accion</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <!-- Recent Sales End -->
-
 
 
 
@@ -273,7 +271,7 @@
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    
+
 
     <!-- Template Javascript -->
 

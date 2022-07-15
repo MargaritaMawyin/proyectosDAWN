@@ -1,5 +1,5 @@
 //ONLOAD
-var company = [], salaryFrom = [], salaryTo = [], trabajo = [], pKeys = [], tipo=[], medioDeAplicacion=[], idiomas = [], direccion = [],sponsor = [], isFullRemtoe = [] ,nivel = [], tamano = [], tec_conArreglos = [], tec = [], ciudad = [], estado = [];
+var company = [], salaryFrom = [], salaryTo = [], trabajo = [], pKeys = [], tipo = [], medioDeAplicacion = [], idiomas = [], direccion = [], sponsor = [], isFullRemtoe = [], nivel = [], tamano = [], tec_conArreglos = [], tec = [], ciudad = [], estado = [];
 var empresaSeleccionada;
 // PRESENTANDO EN SELECT TODAS LAS EMPRESAS
 fetch("https://devitjobs.us/api/jobsLight")  //API a consumir
@@ -25,7 +25,7 @@ fetch("https://devitjobs.us/api/jobsLight")  //API a consumir
 
         }
 
-         //CONJUNTO DE EMPRESAS dentro del SELECT
+        //CONJUNTO DE EMPRESAS dentro del SELECT
         conjCompany = new Set(company)
         document.querySelector('div.input-group > select').innerHTML += `<option value="TODAS">TODAS LAS EMPRESAS</option>`
         for (let comp of conjCompany) {
@@ -38,14 +38,14 @@ fetch("https://devitjobs.us/api/jobsLight")  //API a consumir
         let selectElemento = document.querySelector('.custom-select');
         selectElemento.addEventListener('change', (eventChange) => {
             empresaSeleccionada = eventChange.target.value;
-                      
-       
+
+
             //NIVELES DE EXPERIENCIA
             var conjNiveles = ['Regular', 'Lead', 'Senior', 'Junior']
             var nivel1 = 0, nivel2 = 0, nivel3 = 0, nivel4 = 0;
             for (let n in nivel) {
                 if (empresaSeleccionada == "TODAS") {
-                    console.log('empresa seleccionada ',empresaSeleccionada)
+                    console.log('empresa seleccionada ', empresaSeleccionada)
                     switch (nivel[n]) {
                         case 'Regular':
                             nivel1++;
@@ -129,12 +129,14 @@ fetch("https://devitjobs.us/api/jobsLight")  //API a consumir
                     data2.push(salaryTo[i])
                     l.push(cont++)
 
+
                 }
                 if (empresaSeleccionada == "TODAS") {
-                    data1.push(salaryFrom[i])
-                    data2.push(salaryTo[i])
+                    // data1.push(Math.min(salaryFrom))
+                    // data2.push(Math.min(salaryTo))
                     l.push(cont++)
-
+                    data1.push(salaryFrom.sort((function (a, b) { return a - b }))[1])
+                    data2.push(salaryFrom.sort((function (a, b) { return a - b }))[salaryFrom.length - 1])
                 }
             }
 
@@ -192,18 +194,13 @@ fetch("https://devitjobs.us/api/jobsLight")  //API a consumir
                 tecConj = new Set(tecs)
                 arregloTecUnicos = Array.from(tecConj)
             }
-            // console.log(arregloTecUnicos)
-            // console.log(tecs)
-            let cant =[]
+            
+            let cant = []
             for (let t of arregloTecUnicos) {
                 a = tecs.filter(e => e == t)
                 cant.push(a.length)
 
             }
-            
-            
-            // console.log(cant)
-
             //https://www.chartjs.org/docs/latest/samples/bar/horizontal.html
             //https://www.chartjs.org/docs/latest/charts/bar.html
             var ctxL = document.getElementById("barChart");
@@ -221,7 +218,6 @@ fetch("https://devitjobs.us/api/jobsLight")  //API a consumir
                         data: cant,
                         backgroundColor: [
                             'rgba(105, 0, 132, .2)',
-                            'rgba(100, 10, 132, .5)',
                         ],
                         borderColor: [
                             'rgba(200, 99, 132, .7)',
@@ -236,7 +232,7 @@ fetch("https://devitjobs.us/api/jobsLight")  //API a consumir
             // FIN DE BAR H CHART
 
 
-            //BAR CHART
+            //DETALLES QUE NO ESTAN EN GRAFICOS
             var est = []//estados
             var ciu = []//ciudades
             var l2 = [];
@@ -244,9 +240,9 @@ fetch("https://devitjobs.us/api/jobsLight")  //API a consumir
             var sponsorship;
             var isRemote;
             var size;
-            var dir=[];
+            var dir = [];
             var lang;
-            var pk=[];
+            var pk = [];
             var tipoTrabajo;
             var dondeAplicar;
             for (let i in company) {
@@ -254,28 +250,24 @@ fetch("https://devitjobs.us/api/jobsLight")  //API a consumir
                     est.push(estado[i])
                     ciu.push(ciudad[i])
                     l2.push(cont++)
-                    sponsorship=sponsor[i]
-                    isRemote=isFullRemtoe[i]
-                    size=tamano[i]
+                    sponsorship = sponsor[i]
+                    isRemote = isFullRemtoe[i]
+                    size = tamano[i]
                     dir.push(direccion[i])
                     lang = idiomas[i]
-                    pk=pk.concat(pKeys[i])
-                    dondeAplicar=medioDeAplicacion[i]
-                    tipoTrabajo=tipo[i]
+                    pk = pk.concat(pKeys[i])
+                    dondeAplicar = medioDeAplicacion[i]
+                    tipoTrabajo = tipo[i]
                 }
                 if (empresaSeleccionada == "TODAS") {
-                    
-                    l2.push(cont++)
+
+                    l2=[1,2,3,4,5,6,7,8,9,10]
 
                 }
             }
-            
-            // tecConj = new Set(tecs)
-            //     arregloTecUnicos = Array.from(tecConj)
-            
-            
-            
-            if(empresaSeleccionada!= "TODAS"){
+            pk = Array.from( new Set(pk))
+
+            if (empresaSeleccionada != "TODAS") {
                 document.getElementById('tipo').innerHTML = `${tipoTrabajo}`
                 document.getElementById('sponsorship').innerHTML = `${sponsorship}`
                 document.getElementById('tamanio').innerHTML = `${size}`
@@ -283,26 +275,28 @@ fetch("https://devitjobs.us/api/jobsLight")  //API a consumir
                 document.getElementById('aplicacion').innerHTML = `${dondeAplicar}`
                 document.getElementById('idioma').innerHTML = `${lang}`
                 document.getElementById('direccion').innerHTML = `${dir[0]}`
-                document.getElementById('perkKeys').innerHTML = ``  
-                for(let p of pk){
+                document.getElementById('perkKeys').innerHTML = ``
+                for (let p of pk) {
                     document.getElementById('perkKeys').innerHTML += `${p} <br>`
                 }
-               
+
             }
-            else{
+            else {
                 document.getElementById('tipo').innerHTML = `Hay distintos tipos de trabajo`
-                document.getElementById('sponsorship').innerHTML =  `Algunas empresas ofrecen patrocinio`
+                document.getElementById('sponsorship').innerHTML = `Algunas empresas ofrecen patrocinio`
                 document.getElementById('tamanio').innerHTML = ` Las empresas tienen varidad de tamaño`
                 document.getElementById('remoto').innerHTML = `Pocas empresas trabajan remoto totalmente`
                 document.getElementById('aplicacion').innerHTML = `Existen varios metodos para aplicar`
                 document.getElementById('idioma').innerHTML = `Principalmente se pide inglés`
                 document.getElementById('direccion').innerHTML = `Hay distintas direcciones por empresa`
-                document.getElementById('perkKeys').innerHTML = `Hay distintas perk keys por empresa` 
+                document.getElementById('perkKeys').innerHTML = `Hay distintas perk keys por empresa`
             }
-           
+
             // //CIUDAD - ESTADO DE LA EMPRESA
             var est = [];
-            var ciu =[]
+            var ciu = [];
+            var arregloUnicosCiu=[];
+            var arregloUnicosEs=[];
             for (let i in company) {
                 if (empresaSeleccionada == company[i]) {
                     ciu = ciu.concat(ciudad[i])
@@ -314,22 +308,24 @@ fetch("https://devitjobs.us/api/jobsLight")  //API a consumir
                 }
                 estConj = new Set(est)
                 ciuConj = new Set(ciu)
-                arregloTecUnicosCiu = Array.from(ciuConj)
-                arregloTecUnicosEst = Array.from(estConj)
+                ciu = Array.from(ciuConj)
+                est = Array.from(estConj)
             }
-            let cantCiu =[]
-            let cantEst =[]
-            for (let t of arregloTecUnicosCiu) {
+            let cantCiu = []
+            let cantEst = []
+            for (let t of ciu) {
                 a = ciu.filter(e => e == t)
                 cantCiu.push(a.length)
 
             }
-            for (let t of arregloTecUnicosEst) {
+            for (let t of est) {
                 a = est.filter(e => e == t)
                 cantEst.push(a.length)
 
             }
-           
+            console.log(cantCiu,cantEst)
+
+            //BAR CHART
             var ctxL = document.getElementById("columnChart").getContext('2d');
             let chartStatus2 = Chart.getChart("columnChart");
             if (chartStatus2 != undefined) {
@@ -339,9 +335,9 @@ fetch("https://devitjobs.us/api/jobsLight")  //API a consumir
 
                 type: 'bar',
                 data: {
-                    labels: l2,
+                    labels: ciu,
                     datasets: [{
-                        label: arregloTecUnicosCiu,
+                        label: ciu,
                         data: cantCiu,
                         backgroundColor: [
                             'rgba(105, 0, 132, .2)',
@@ -352,7 +348,7 @@ fetch("https://devitjobs.us/api/jobsLight")  //API a consumir
                         borderWidth: 2
                     },
                     {
-                        label: arregloTecUnicosEst,
+                        label: est,
                         data: cantEst,
                         backgroundColor: [
                             'rgba(0, 137, 132, .2)',

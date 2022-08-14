@@ -1,0 +1,44 @@
+
+
+{
+    "config": {
+      "locale": "en"
+    },
+    "model": {
+      "type": "Object",
+      "value": {
+
+        "id": {
+          "type": "incrementNumber",
+          "options": {
+            "from": 0
+          }
+        },
+        "marca": {
+          "type": "randomElementInArray",
+          "value": ["Samsung",  "Huawei" , "Apple" , "Xiaomi"]
+        },
+        "precio": {
+          "type": "randomNumberBetween",
+          "value": [100, 2000]
+        },
+        "fechaDeCreacion" : {
+            "type":"faker",
+            "value": "date.between",
+            "options": ["2020-01-02", "2022-08-10"]
+        },
+        "color": {
+            "type": "randomElementInArray",
+            "value": ["blanco",  "negro" , "rosado-dorado" , "rosado", "dorado","azul","rojo","gris","celeste"]
+        },
+        "caracteristicas": {
+            "type": "faker",
+            "value": "lorem.paragraph"
+        }
+
+    
+       
+       
+      }
+    }
+  }

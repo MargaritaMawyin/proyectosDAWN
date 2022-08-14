@@ -1,0 +1,14 @@
+section{
+    background-color: rgb(30, 156, 114);
+    margin: 5% 0%;
+    padding: 5% 0%;
+}
+img{
+    width: 40%;
+}
+h2{
+    font-size: 40px;
+    color: rgb(30, 156, 114);
+    text-align: center;
+    margin: 5% 0%;
+}

@@ -1,0 +1,28 @@
+img {
+    width: 60%;
+}
+
+
+li {
+    background-color: rgb(30, 156, 114);
+    margin: 3%;
+    padding: 2%;
+    border: 2px solid none;
+    border-radius: 12px;
+    list-style: none;
+}
+
+button {
+    display: block;
+    background-color: rgb(30, 156, 114);
+    margin-top: 8%;
+    margin-left: 2%;
+    border: 2px solid green;
+    border-radius: 12px;
+    color: aliceblue;
+}
+
+button:hover {
+
+    background-color: rgb(9, 87, 61)
+}
